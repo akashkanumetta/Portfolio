@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akash K — AI/ML Graduate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c0f;
+    --bg2: #111318;
+    --bg3: #181c24;
+    --border: rgba(255,255,255,0.07);
+    --border-h: rgba(255,255,255,0.14);
+    --text: #e8eaf0;
+    --muted: #7a7f8e;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --accent3: #38d9a9;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Space Grotesk', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 56px;
+    background: rgba(10,12,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 1.75rem; }
+  .nav-links a {
+    color: var(--muted); font-size: 13px; text-decoration: none;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* SECTIONS */
+  section { padding: 5rem 0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 56px;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(79,142,247,0.08) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--accent);
+  }
+  h1.hero-name {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 600; line-height: 1.08; letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  h1.hero-name .grad {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-role {
+    font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem;
+    max-width: 560px;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+    padding: 4px 10px; border-radius: 4px;
+    border: 1px solid var(--border-h); color: var(--muted);
+    transition: all 0.2s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 22px; border-radius: 6px;
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: all 0.2s; cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-primary:hover { background: #3d7be8; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--muted);
+    border: 1px solid var(--border-h);
+  }
+  .btn-ghost:hover { border-color: var(--border-h); color: var(--text); background: var(--bg2); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: var(--muted); font-size: 11px; letter-spacing: 0.08em;
+    font-family: var(--mono);
+  }
+  .scroll-line {
+    width: 1px; height: 36px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.3} 50%{opacity:1} }
+  #hero { position: relative; }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: 2rem; font-weight: 600;
+    letter-spacing: -0.025em; margin-bottom: 3rem;
+    color: var(--text);
+  }
+  .section-title span { color: var(--muted); font-weight: 300; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* EXPERIENCE */
+  .exp-item {
+    display: grid; grid-template-columns: 160px 1fr; gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-meta { }
+  .exp-org { font-size: 12px; color: var(--accent); font-family: var(--mono); margin-bottom: 4px; }
+  .exp-period { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+  .exp-title { font-size: 1rem; font-weight: 500; margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 14px; color: var(--muted); padding: 3px 0;
+    padding-left: 1.25rem; position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent3); font-size: 11px; top: 5px;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .project-card {
+    background: var(--bg2);
+    padding: 1.75rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+  .project-card:hover { background: var(--bg3); }
+  .project-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--border-h); margin-bottom: 1rem;
+  }
+  .project-name {
+    font-size: 15px; font-weight: 500; margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  .project-desc {
+    font-size: 13px; color: var(--muted); line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+  .tech-pill {
+    font-family: var(--mono); font-size: 10px;
+    padding: 3px 8px; border-radius: 3px;
+    background: rgba(79,142,247,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(79,142,247,0.15);
+  }
+  .project-highlights { }
+  .project-highlights li {
+    font-size: 12px; color: var(--muted);
+    list-style: none; padding: 2px 0;
+    padding-left: 1.2rem; position: relative;
+  }
+  .project-highlights li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent3); font-size: 10px; top: 3px;
+  }
+  .project-link {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    color: var(--muted); text-decoration: none; font-size: 13px;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--accent); }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+  }
+  .skill-group-title {
+    font-size: 11px; font-family: var(--mono);
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-chip {
+    font-size: 12px; padding: 4px 10px; border-radius: 4px;
+    background: var(--bg3); color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  /* EDUCATION */
+  .edu-list { }
+  .edu-item {
+    display: flex; align-items: flex-start; gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-year {
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    min-width: 80px; padding-top: 3px;
+  }
+  .edu-degree { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+  .edu-school { font-size: 13px; color: var(--muted); margin-bottom: 3px; }
+  .edu-grade {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--accent3);
+  }
+
+  /* ACHIEVEMENTS */
+  .achieve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .achieve-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .achieve-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .achieve-icon.patent { background: rgba(124,92,252,0.12); color: var(--accent2); }
+  .achieve-icon.pub { background: rgba(56,217,169,0.12); color: var(--accent3); }
+  .achieve-icon.cert { background: rgba(79,142,247,0.12); color: var(--accent); }
+  .achieve-title { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+  .achieve-sub { font-size: 12px; color: var(--muted); }
+
+  /* LANGUAGES */
+  .lang-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .lang-chip {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .lang-name { font-size: 14px; font-weight: 500; }
+  .lang-level { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+  /* CONTACT */
+  #contact {
+    background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(79,142,247,0.07) 0%, transparent 70%);
+  }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px; border-radius: 8px;
+    background: var(--bg2); border: 1px solid var(--border);
+    color: var(--muted); font-size: 13px; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-link:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: rgba(79,142,247,0.06);
+  }
+  .contact-link svg { width: 16px; height: 16px; }
+
+  footer {
+    text-align: center; padding: 2rem;
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.06em;
+  }
+
+  /* OPEN TO WORK */
+  .otw-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 99px;
+    background: rgba(56,217,169,0.1);
+    border: 1px solid rgba(56,217,169,0.3);
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent3); letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+  }
+  .otw-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent3);
+    box-shadow: 0 0 0 0 rgba(56,217,169,0.4);
+    animation: otwPulse 2s ease-in-out infinite;
+  }
+  @keyframes otwPulse {
+    0% { box-shadow: 0 0 0 0 rgba(56,217,169,0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(56,217,169,0); }
+    100% { box-shadow: 0 0 0 0 rgba(56,217,169,0); }
+  }
+
+  /* PATENT SPOTLIGHT */
+  .patent-spotlight {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .patent-main {
+    background: linear-gradient(135deg, rgba(124,92,252,0.12) 0%, rgba(79,142,247,0.06) 100%);
+    border: 1px solid rgba(124,92,252,0.3);
+    border-radius: 14px; padding: 2rem;
+    grid-column: 1 / -1;
+    position: relative; overflow: hidden;
+  }
+  .patent-main::before {
+    content: 'PATENT';
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+    color: rgba(124,92,252,0.5);
+  }
+  .patent-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 4px;
+    background: rgba(124,92,252,0.15); border: 1px solid rgba(124,92,252,0.3);
+    font-family: var(--mono); font-size: 11px; color: var(--accent2);
+    margin-bottom: 1rem;
+  }
+  .patent-title {
+    font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .patent-desc { font-size: 14px; color: var(--muted); margin-bottom: 1.25rem; }
+  .patent-meta {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .patent-meta-item { }
+  .patent-meta-label {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px;
+  }
+  .patent-meta-value { font-size: 13px; color: var(--text); font-weight: 500; }
+
+  /* BLOG / PUBLICATIONS */
+  .pub-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .pub-card:hover { border-color: var(--border-h); background: var(--bg3); }
+  .pub-venue-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 4px;
+    background: rgba(56,217,169,0.08); border: 1px solid rgba(56,217,169,0.2);
+    font-family: var(--mono); font-size: 11px; color: var(--accent3);
+    margin-bottom: 1rem;
+  }
+  .pub-title {
+    font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; line-height: 1.45;
+  }
+  .pub-abstract {
+    font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem;
+  }
+  .pub-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .pub-authors { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .pub-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pub-tag {
+    font-size: 11px; padding: 3px 8px; border-radius: 3px;
+    background: var(--bg3); color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 640px) {
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nav-links { display: none; }
+    .hero-cta { flex-direction: column; }
+    .exp-meta { display: flex; gap: 1rem; align-items: center; }
+    .patent-spotlight { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AK.portfolio</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#patent">Patent</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="otw-badge">
+      <div class="otw-dot"></div>
+      Fresh graduate · Open to AI/ML roles & Gen AI roles
+    </div>
+    <h1 class="hero-name">
+      <span class="grad">Akash</span> K<br>
+    </h1>
+    <p class="hero-role">
+      AI/ML graduate — building intelligent systems across computer vision, LLM-powered agents, real-time APIs, and edge inference.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Python</span>
+      <span class="tag">TensorFlow / PyTorch</span>
+      <span class="tag">LangChain / LangGraph</span>
+      <span class="tag">FastAPI</span>
+      <span class="tag">RAG</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">GenAI</span>
+      <span class="tag">Docker</span>
+      <span class="tag">AWS / GCP</span>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:akashkanumetta18@gmail.com" class="btn btn-primary">
+        Get in touch
+      </a>
+      <a href="https://github.com/akashkanumetta" target="_blank" class="btn btn-ghost">
+        GitHub ↗
+      </a>
+      <a href="https://linkedin.com/in/akash-k187" target="_blank" class="btn btn-ghost">
+        LinkedIn ↗
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">01 — Experience</div>
+    <h2 class="section-title">Where I've worked <span>professionally</span></h2>
+    <div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-org">CSIR</div>
+          <div class="exp-period">Jun 2024 – Jul 2024</div>
+        </div>
+        <div>
+          <div class="exp-title">Research Intern — Council of Scientific & Industrial Research, Chennai</div>
+          <ul class="exp-bullets">
+            <li>Built a deep learning pipeline for wood defect detection using CNN and Mask R-CNN, achieving <strong>98% classification accuracy</strong> — an 18% improvement over traditional methods.</li>
+            <li>Applied image preprocessing, data augmentation, dropout regularization, and feature extraction to boost model robustness across multiple defect categories.</li>
+            <li>Implemented pixel-level defect localization using Mask R-CNN segmentation for precise spatial analysis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">02 — Projects</div>
+    <h2 class="section-title">Things I've <span>built</span></h2>
+    <div class="projects-grid">
+
+      <!-- Tyre Defect -->
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <a href="https://github.com/akashkanumetta/Tyre-defect-detection" target="_blank" class="project-link">↗</a>
+        <div class="project-name">Tyre Defect Detection</div>
+        <div class="project-desc">ML system detecting both external surface and internal structural tyre defects using image and sensor data with a real-time API.</div>
+        <div class="project-tech">
+          <span class="tech-pill">CNN</span>
+          <span class="tech-pill">RandomForest</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">PyTorch</span>
+        </div>
+        <ul class="project-highlights">
+          <li>92% overall accuracy across defect types</li>
+          <li>CNN for surface faults — 94% precision</li>
+          <li>RandomForest for internal issues — 88% F1</li>
+          <li>RESTful API with &lt;150ms response latency</li>
+        </ul>
+      </div>
+
+      <!-- Multi-Agent -->
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-name">Multi-Agent Business Assistant</div>
+        <div class="project-desc">5-agent AI workflow for end-to-end sales automation — client analysis, proposal generation, quotation, email drafting, and CRM management.</div>
+        <div class="project-tech">
+          <span class="tech-pill">LangGraph</span>
+          <span class="tech-pill">Gemini</span>
+          <span class="tech-pill">FAISS</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Docker</span>
+        </div>
+        <ul class="project-highlights">
+          <li>70%+ reduction in manual sales documentation</li>
+          <li>RAG pipeline with 90%+ retrieval relevance</li>
+          <li>Sub-2s response time; supports 100+ client records</li>
+          <li>JWT-secured FastAPI backend with real-time workflows</li>
+        </ul>
+      </div>
+
+      <!-- Q&A Chatbot -->
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <a href="https://github.com/akashkanumetta/GeminiRAG-FAQ" target="_blank" class="project-link">↗</a>
+        <div class="project-name">AI-Powered Q&A Chatbot</div>
+        <div class="project-desc">Retrieval-augmented FAQ assistant built with Google Gemini and HuggingFace embeddings for high-precision document-grounded answers.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Google Gemini</span>
+          <span class="tech-pill">LangChain</span>
+          <span class="tech-pill">FAISS</span>
+          <span class="tech-pill">Streamlit</span>
+        </div>
+        <ul class="project-highlights">
+          <li>1,000+ FAQ entries indexed in FAISS vector store</li>
+          <li>85% improvement in answer relevance via RAG</li>
+          <li>Sub-second responses for &gt;95% of queries</li>
+          <li>90%+ precision in CSV similarity retrieval</li>
+        </ul>
+      </div>
+
+      <!-- Accident Detection -->
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <a href="https://github.com/akashkanumetta/Accident-Detection-and-Alert-System" target="_blank" class="project-link">↗</a>
+        <div class="project-name">Accident Detection & Alert System</div>
+        <div class="project-desc">Real-time accident detection from CCTV feeds using YOLOv8 and optical flow, triggering alerts to emergency services with snapshot capture.</div>
+        <div class="project-tech">
+          <span class="tech-pill">YOLOv8</span>
+          <span class="tech-pill">Optical Flow</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">OpenCV</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Detects collisions and motion anomalies in real time</li>
+          <li>Automated snapshot capture on incident detection</li>
+          <li>Integrated alert pipeline for hospital/emergency notification</li>
+        </ul>
+      </div>
+
+      <!-- Seismic Wave -->
+      <div class="project-card">
+        <div class="project-num">05</div>
+        <a href="https://github.com/akashkanumetta/Seismic-wave-detection" target="_blank" class="project-link">↗</a>
+        <div class="project-name">Seismic Wave Detection</div>
+        <div class="project-desc">ML-based seismic event classification on Moon and Mars planetary data using velocity variation analysis and interactive visualization.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Random Forest</span>
+          <span class="tech-pill">Signal Processing</span>
+          <span class="tech-pill">Data Visualization</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Classifies seismic events from planetary velocity data</li>
+          <li>Visualizes waveform patterns for scientific analysis</li>
+          <li>Designed for NASA planetary seismic datasets</li>
+        </ul>
+      </div>
+
+      <!-- Lunar Image Enhancement -->
+      <div class="project-card">
+        <div class="project-num">06</div>
+        <a href="https://github.com/akashkanumetta/Moon-image-enhancement-at-lunar-surface" target="_blank" class="project-link">↗</a>
+        <div class="project-name">Lunar Image Enhancement</div>
+        <div class="project-desc">FastAPI service to enhance lunar surface imagery using a multi-algorithm pipeline — directly related to a filed patent on permanently shadowed crater regions.</div>
+        <div class="project-tech">
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">CLAHE</span>
+          <span class="tech-pill">Retinex</span>
+          <span class="tech-pill">OpenCV</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Multi-Scale Retinex + Dark Channel Prior + CLAHE pipeline</li>
+          <li>Unsharp Masking for fine surface detail recovery</li>
+          <li>Patent filed (App. No. 202541015046 A, Feb 2025)</li>
+        </ul>
+      </div>
+
+      <!-- Human Attributes -->
+      <div class="project-card">
+        <div class="project-num">07</div>
+        <a href="https://github.com/akashkanumetta/Human-Attributes-Estimation" target="_blank" class="project-link">↗</a>
+        <div class="project-name">Human Attributes Estimation</div>
+        <div class="project-desc">Web-based selfie application predicting height, weight, gender, and age from facial images using MobileNetV2 with data augmentation.</div>
+        <div class="project-tech">
+          <span class="tech-pill">MobileNetV2</span>
+          <span class="tech-pill">TensorFlow</span>
+          <span class="tech-pill">Data Augmentation</span>
+        </div>
+        <ul class="project-highlights">
+          <li>Multi-attribute prediction from a single facial image</li>
+          <li>Lightweight MobileNetV2 for edge-compatible inference</li>
+          <li>Web interface for seamless end-user interaction</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">03 — Technical Skills</div>
+    <h2 class="section-title">What I work <span>with</span></h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">C / C++</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">JavaScript</span>
+          <span class="skill-chip">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">AI / ML & Data Science</div>
+        <div class="skill-list">
+          <span class="skill-chip">TensorFlow</span>
+          <span class="skill-chip">Keras</span>
+          <span class="skill-chip">PyTorch</span>
+          <span class="skill-chip">OpenCV</span>
+          <span class="skill-chip">NLTK</span>
+          <span class="skill-chip">Pandas</span>
+          <span class="skill-chip">NumPy</span>
+          <span class="skill-chip">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">LLM & Generative AI</div>
+        <div class="skill-list">
+          <span class="skill-chip">RAG</span>
+          <span class="skill-chip">LangChain</span>
+          <span class="skill-chip">LangGraph</span>
+          <span class="skill-chip">FAISS</span>
+          <span class="skill-chip">HuggingFace</span>
+          <span class="skill-chip">Google Gemini</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Backend & APIs</div>
+        <div class="skill-list">
+          <span class="skill-chip">FastAPI</span>
+          <span class="skill-chip">REST APIs</span>
+          <span class="skill-chip">Streamlit</span>
+          <span class="skill-chip">PostgreSQL</span>
+          <span class="skill-chip">MySQL</span>
+          <span class="skill-chip">JWT Auth</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & DevOps</div>
+        <div class="skill-list">
+          <span class="skill-chip">Docker</span>
+          <span class="skill-chip">AWS</span>
+          <span class="skill-chip">GCP</span>
+          <span class="skill-chip">Linux (Ubuntu)</span>
+          <span class="skill-chip">Git / GitHub</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Tools & Environments</div>
+        <div class="skill-list">
+          <span class="skill-chip">VS Code</span>
+          <span class="skill-chip">Jupyter Notebook</span>
+          <span class="skill-chip">Google Colab</span>
+          <span class="skill-chip">Postman</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">04 — Education</div>
+    <h2 class="section-title">Academic <span>background</span></h2>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-year">2022 – 2026</div>
+        <div>
+          <div class="edu-degree">B.E. in Artificial Intelligence & Machine Learning</div>
+          <div class="edu-school">Sri Sairam Engineering College, Chennai</div>
+          <div class="edu-grade">CGPA: 8.57 · Graduated 2026</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2022</div>
+        <div>
+          <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+          <div class="edu-school">G.K Shetty Vivekananda Vidyalaya Jr. College, Chennai</div>
+          <div class="edu-grade">89.8%</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2020</div>
+        <div>
+          <div class="edu-degree">SSLC (Secondary School)</div>
+          <div class="edu-school">G.K Shetty Vivekananda Vidyalaya Jr. College, Chennai</div>
+          <div class="edu-grade">88.2%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PATENT SPOTLIGHT -->
+<section id="patent">
+  <div class="container">
+    <div class="section-label">05 — Intellectual Property</div>
+    <h2 class="section-title">Patent <span>filed</span></h2>
+    <div class="patent-spotlight">
+      <div class="patent-main">
+        <div class="patent-badge">⬡ Filed · February 2025</div>
+        <div class="patent-title">Process for Enhancement of Permanently Shadowed Regions in Lunar Crater Images Using Multi-Algorithmic Image Processing</div>
+        <div class="patent-desc">
+          A novel multi-algorithm pipeline to recover detail from the permanently shadowed regions of lunar craters — areas that receive no direct sunlight and are invisible to conventional imaging. The method fuses Multi-Scale Retinex, Dark Channel Prior, CLAHE, and Unsharp Masking in a staged pipeline, achieving significant improvement in surface detail visibility for scientific and navigational applications.
+        </div>
+        <div class="patent-meta">
+          <div class="patent-meta-item">
+            <div class="patent-meta-label">Application No.</div>
+            <div class="patent-meta-value">202541015046 A</div>
+          </div>
+          <div class="patent-meta-item">
+            <div class="patent-meta-label">Filed</div>
+            <div class="patent-meta-value">February 2025</div>
+          </div>
+          <div class="patent-meta-item">
+            <div class="patent-meta-label">Domain</div>
+            <div class="patent-meta-value">Space Tech · Computer Vision</div>
+          </div>
+          <div class="patent-meta-item">
+            <div class="patent-meta-label">Status</div>
+            <div class="patent-meta-value">Application Filed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">06 — Research &amp; Publications</div>
+    <h2 class="section-title">Published <span>work</span></h2>
+    <div class="pub-card">
+      <div class="pub-venue-badge">◈ IEEE · February 2026</div>
+      <div class="pub-title">Gaming with Education: The Transformative Potential of Immersive VR for STEM Learning</div>
+      <div class="pub-abstract">
+        This paper investigates how immersive virtual reality environments can bridge the engagement gap in STEM education. By reviewing current VR-based learning systems and analyzing outcomes across student cohorts, the study establishes a framework for integrating game mechanics with curriculum-aligned content — demonstrating measurable improvements in retention, spatial reasoning, and learner motivation compared to traditional instruction.
+      </div>
+      <div class="pub-footer">
+        <div class="pub-authors">Akash K et al. · Contemporary Computing Innovations Conference (IEEE)</div>
+        <div class="pub-tags">
+          <span class="pub-tag">VR / XR</span>
+          <span class="pub-tag">EdTech</span>
+          <span class="pub-tag">STEM</span>
+          <span class="pub-tag">Gamification</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">07 — Certifications</div>
+    <h2 class="section-title">Credentials <span>&amp; training</span></h2>
+    <div class="achieve-grid">
+      <div class="achieve-card">
+        <div class="achieve-icon cert">◇</div>
+        <div>
+          <div class="achieve-title">Deep Learning — NPTEL</div>
+          <div class="achieve-sub">National Programme on Technology Enhanced Learning certification covering deep learning fundamentals, architectures, and applied methods.</div>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon cert">◇</div>
+        <div>
+          <div class="achieve-title">AI on AWS Cloud Computing — Udemy</div>
+          <div class="achieve-sub">Certified in deploying and managing AI/ML workloads on Amazon Web Services infrastructure including SageMaker and EC2.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="container">
+    <div class="section-label">08 — Languages</div>
+    <h2 class="section-title">Languages <span>spoken</span></h2>
+    <div class="lang-row">
+      <div class="lang-chip">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Proficient</div>
+      </div>
+      <div class="lang-chip">
+        <div class="lang-name">Telugu</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-chip">
+        <div class="lang-name">Tamil</div>
+        <div class="lang-level">Fluent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">09 — Contact</div>
+    <h2 class="section-title">Let's <span>connect</span></h2>
+    <p style="color: var(--muted); margin-bottom: 2rem; max-width: 520px; font-size: 15px;">
+      B.E. graduate open to internships, research collaborations, and entry-level AI/ML roles. Reach out via email or connect on any of the platforms below.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:akashkanumetta18@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        akashkanumetta18@gmail.com
+      </a>
+      <a href="https://github.com/akashkanumetta" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/akash-k187" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="tel:+916369714507" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.26 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        +91 6369714507
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Akash K · AI/ML Engineer · Chennai, India · Built with intention, not a template.</p>
+</footer>
+
+</body>
+</html>
